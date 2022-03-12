@@ -1,0 +1,37 @@
+# In order to get the latest ETH/USD price from chainlink price feed from the FundMe.sol address, add to "dependencies" and "remappings".
+# go to: https://github.com/smartcontractkit/chainlink-brownie-contracts/releases
+dependencies:
+  # - 'organization'/'repo'@'version'
+  - smartcontractkit/chainlink-brownie-contracts@1.1.1
+compiler:
+  solc:
+    remappings:
+      - '@chainlink=smartcontractkit/chainlink-brownie-contracts@1.1.1'
+
+# In order to let the config file read the ".env" file.
+dotenv: .env
+
+# All networks available for deployment can be added here. The default network is always set to 'development'. 
+# Development networks are temporarily. Contracts and transactions are deleted after the script completes.
+
+# 'verify' To publish to etherscan.
+# when deploying to a rinkeby network the contract should get verified thus return "True"
+# when deploying to a development/ganache-local/mainnet-fork-dev network the contract shouldn't get verified thus return "False"
+
+# Chainlink's price feed oracle can be found at https://docs.chain.link/docs/ethereum-addresses/
+networks:
+  default: development
+  rinkeby:
+    eth_usd_price_feed: '0x8A753747A1Fa494EC906cE90E9f37563A8AF630e'
+    verify: True
+  mainnet-fork-dev:
+    eth_usd_price_feed: '0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419'
+    verify: False
+  development:
+    verify: False
+  ganache-local:
+    verify: False
+    
+# the ${PRIVATE_KEY} is extracted from the .env file. !NEVER! paste the private key in the config file!
+wallets:
+  from_key: ${PRIVATE_KEY}
