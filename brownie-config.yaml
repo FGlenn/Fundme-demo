@@ -18,7 +18,8 @@ dotenv: .env
 # when deploying to a rinkeby network the contract should get verified thus return "True"
 # when deploying to a development/ganache-local/mainnet-fork-dev network the contract shouldn't get verified thus return "False"
 
-# Chainlink's price feed oracle can be found at https://docs.chain.link/docs/ethereum-addresses/
+# Chainlink's price feed oracle can be found at 'https://docs.chain.link/docs/ethereum-addresses/'
+
 networks:
   default: development
   rinkeby:

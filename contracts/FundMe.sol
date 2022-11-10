@@ -22,8 +22,7 @@ contract FundMe {
     // Old: AggregatorV3Interface priceFeed = AggregatorV3Interface(0x...)
     AggregatorV3Interface public priceFeed;
 
-    // the first person to deploy the contract is
-    // the owner
+    // the first person to deploy the contract is the owner
     // the _pricefeed address is set as an input parameter since it depends on the network it uses
     constructor(address _priceFeed) public {
         // the "AggregatorV3Interface" of the "_priceFeed" address = priceFeed

@@ -21,7 +21,7 @@ def deploy_fund_me():
         deploy_mocks()
         price_feed_address = MockV3Aggregator[-1].address
 
-    # After, from brownie import FundMe, the contract van be deployed by adding ".deploy".
+    # After "from brownie import FundMe" the contract can be deployed by adding ".deploy".
     # When deploying we need 3 parameters, depending on the network: price_feed_address, {"from": account}, publish_source=
     # The price_feed_address will be used in the FundMe.sol constructor to set up the right AggregatorV3Interface
     # the "publish_source" True/False it determined by the "config.yaml" file

@@ -30,11 +30,11 @@ def test_can_fund_and_withdraw():
 # To test if only the owner can withdraw funds
 # install pytest with - pip install pytest
 # import pytest and import exceptions through brownie
+# if     "fund_me.withdraw({"from": bad_actor})"    reverts with VirtualMachineError    then that's good
 def test_only_owner_can_withdraw():
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
         pytest.skip("only for local testing")
     fund_me = deploy_fund_me()
     bad_actor = accounts.add()
-    # if     fund_me.withdraw({"from": bad_actor}) reverts with VirtualMachineError    then that's good
     with pytest.raises(exceptions.VirtualMachineError):
         fund_me.withdraw({"from": bad_actor})

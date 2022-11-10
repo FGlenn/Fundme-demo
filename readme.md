@@ -50,7 +50,6 @@ To add network to brownie
 # Terminal >brownie networks add development mainnet-fork-dev cmd=ganache-cli host=http://127.0.0.1:7545 fork=https://eth-mainnet.alchemyapi.io/v2/0LeLMok1alT8TVWbFlPjVsWITxtUD_1b accounts=10 mnemonic=brownie port=7545
 # Terminal >brownie networks add Ethereum ganache-local host=http://127.0.0.1:7545 chainid=5777
 
-
 Import project ID in enviroment variables
 # in ".env" file > export WEB3_INFURA_PROJECT_ID=____Check INFURA's website___
 
@@ -62,4 +61,14 @@ To be able to import functions from different scripts in the same folder
 Contract verification
 # get an API-key from my profile in Etherscan
 # in ".env" file > ETHERSCAN_TOKEN=_____
+
+Accounts and pricefeeds
+# for a development network:        get ganache built in accounts + mock pricefeed network  -   LOCAL_BLOCKCHAIN_ENVIRONMENTS
+# for a forked network:             get ganache built in accounts + use existing pricefeeds -   FORKED_LOCAL_ENVIRONMENTS
+# for a mainnet/testnet network:    use existing accounts + use existing pricefeeds
+
+Where to run tests?
+1. Brownie Ganache chain with mocks: always
+2. Testnet: always, but only for integrations
+3. Brownie mainnet fork: optional, should be done when all of the contracts and interactions are going to be on one chain without external off-chain components
 
